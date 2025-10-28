@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SERVER_URL}
+    username: ${SERVER_USER}
+    password: ${SERVER_PASSWORD}
+
+# Base URL para im\u00e1genes en desarrollo
+especializacion:
+  url:
+    base-imagenes: http://localhost:3333
+  ruta:
+    imagenes: C:/especializacion/imagenes
+    imagenes-vacantes: C:/especializacion/imagenes/vacantes
+    documentos: C:/especializacion/documentos

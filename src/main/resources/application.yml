@@ -1,22 +1,6 @@
-server:
-  port: 3333
-  servlet:
-    context-path: /
-  error:
-    whitelabel:
-      enabled: false
-    include-message: always
 spring:
-  application.name: especializacion
-  profiles:
-    active: dev, security-enabled
-  servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
-  jackson:
-    deserialization:
-      fail-on-unknown-properties: true
+  application:
+    name: espeUnimag
   jpa:
     show-sql: true
     properties:
@@ -25,56 +9,55 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: none
-  data:
-    jdbc:
-      dialect: postgresql
-  datasource:
-#    driver-class-name: org.postgresql.Driver
-    url: ${SERVER_URL}
-    username: ${SERVER_USER}
-    password: ${SERVER_PASSWORD}
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   mvc:
-  #    throw-exception-if-no-handler-found: true  REVISAR
-  web:
-    resources:
-      static-locations:
-        file:${especializacion.ruta.imagenes-vacantes}/
-
+    throw-exception-if-no-handler-found: true
+  profiles:
+    active:
+      - dev
+      - security-enabled
   mail:
-    host: mail.unimag.com
-    port: 587
-    username: correo@unimag.com
-    password: mypswd
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+  web:
+    resources:
+      static-locations: "file:${especializacion.ruta.imagenes-vacantes}/"
+
+server:
+  port: 3333
+  servlet:
+    context-path: "/"
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
 logging:
   level:
-    org:
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql: TRACE
-      springframework:
-        orm:
-          jpa: DEBUG
-        transaction: TRACE
+    "org.hibernate.SQL": DEBUG
+    "org.hibernate.type.descriptor.sql": TRACE
+    "org.springframework.orm.jpa": DEBUG
+    "org.springframework.transaction": TRACE
 
 smspropio:
   api:
-    url: https://www.smspropio.co/api
-    key: mypswd
+    url: ${SMS_URL}
+    key: ${SMS_KEY}
+
 app:
   mail:
-    from-name: Nombre correo
-
-especializacion:
-  ruta:
-    imagenes: C:/especializacion/imagenes
-    imagenes-vacantes: C:/especializacion/imagenes/vacantes
-    documentos: C:/especializacion/documentos
-
+    from-name: ${MAIL_FORM_NAME}
