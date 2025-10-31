@@ -1,7 +1,5 @@
 package com.esp.modalidad.service;
 
-import com.esp.empresa.entity.TipoEmpresa;
-import com.esp.empresa.utils.validation.TipoEmpresaValidator;
 import com.esp.infraestructura.core.crud.OperationCrudImpl;
 import com.esp.infraestructura.core.search.SearchService;
 import com.esp.infraestructura.exception.ExceptionBusiness;

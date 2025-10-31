@@ -5,13 +5,11 @@ import com.esp.infraestructura.utils.respuesta.ResponseHttp;
 import com.esp.modalidad.dto.ModalidadDtoCrear;
 import com.esp.modalidad.service.ModalidadService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/modalidad")
+@CrossOrigin(originPatterns = "*")
 public class ModalidadController {
 
     private final ModalidadService service;

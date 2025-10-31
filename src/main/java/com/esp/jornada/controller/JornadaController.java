@@ -5,13 +5,11 @@ import com.esp.jornada.dto.JornadaDtoCrear;
 import com.esp.jornada.entity.Jornada;
 import com.esp.jornada.service.JornadaService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/jornada")
+@CrossOrigin(originPatterns = "*")
 public class JornadaController {
 
     private final JornadaService service;

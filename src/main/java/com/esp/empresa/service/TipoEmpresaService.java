@@ -7,7 +7,7 @@ import com.esp.empresa.entity.TipoEmpresa;
 import com.esp.empresa.repository.TipoEmpresaRepository;
 import com.esp.empresa.utils.mappers.TipoEmpresaMapper;
 
-import com.esp.empresa.utils.validation.TipoEmpresaValidator;
+import com.esp.empresa.utils.validators.TipoEmpresaValidator;
 import com.esp.infraestructura.core.crud.OperationCrudImpl;
 import com.esp.infraestructura.core.search.SearchService;
 import com.esp.infraestructura.exception.ExceptionBusiness;

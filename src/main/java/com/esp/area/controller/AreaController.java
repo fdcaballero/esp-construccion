@@ -5,13 +5,11 @@ import com.esp.area.dto.AreaDtoCrear;
 import com.esp.area.service.AreaService;
 import com.esp.infraestructura.utils.respuesta.ResponseHttp;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/area")
+@CrossOrigin(originPatterns = "*")
 public class AreaController {
 
     private final AreaService service;
