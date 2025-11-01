@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/modalidad")
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 public class ModalidadController {
 
     private final ModalidadService service;

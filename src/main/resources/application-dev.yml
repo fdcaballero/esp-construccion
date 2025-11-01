@@ -10,6 +10,6 @@ especializacion:
   url:
     base-imagenes: http://localhost:3333
   ruta:
-    imagenes: C:/especializacion/imagenes
-    imagenes-vacantes: C:/especializacion/imagenes/vacantes
-    documentos: C:/especializacion/documentos
+    imagenes: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/imagenes
+    imagenes-vacantes: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/vacantes
+    documentos: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/documentos

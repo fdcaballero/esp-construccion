@@ -5,7 +5,7 @@ import com.esp.area.dto.AreaDtoRespuesta;
 import com.esp.area.entity.Area;
 import com.esp.area.repository.AreaRepository;
 import com.esp.area.utils.mappers.AreaMapper;
-import com.esp.area.utils.validations.AreaValidator;
+import com.esp.area.utils.validators.AreaValidator;
 import com.esp.infraestructura.core.crud.OperationCrudImpl;
 import com.esp.infraestructura.core.search.SearchService;
 import com.esp.infraestructura.exception.ExceptionBusiness;

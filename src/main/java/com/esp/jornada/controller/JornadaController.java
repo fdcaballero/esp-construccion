@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/jornada")
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 public class JornadaController {
 
     private final JornadaService service;

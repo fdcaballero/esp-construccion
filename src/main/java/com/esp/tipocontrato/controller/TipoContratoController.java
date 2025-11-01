@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/tipos_contratos-type")
 public class TipoContratoController {
 

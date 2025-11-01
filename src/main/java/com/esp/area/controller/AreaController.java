@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/area")
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 public class AreaController {
 
     private final AreaService service;

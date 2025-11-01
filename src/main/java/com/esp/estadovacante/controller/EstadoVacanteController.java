@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/estado-vacante")
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 public class EstadoVacanteController {
     private final EstadoVacanteService service;
 

@@ -1,4 +1,4 @@
-package com.esp.area.utils.validations;
+package com.esp.area.utils.validators;
 
 import com.esp.infraestructura.exception.ExceptionValidation;
 

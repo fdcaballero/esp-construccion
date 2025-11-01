@@ -15,15 +15,14 @@ public class RelUsuarioEmpresa implements Serializable {
     @EmbeddedId
     private RelUsuarioEmpresaPK id;
 
-    @MapsId
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario",nullable = false,
             insertable = false, updatable = false)
     private Usuario usuario;
 
-    @MapsId("idEmpresa")
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", nullable = false)
+    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", nullable = false,
+            insertable = false, updatable = false)
     private Empresa empresa;
 
     @Column(name = "permiso_rel_usuario_empresa")
@@ -43,6 +42,11 @@ public class RelUsuarioEmpresa implements Serializable {
 
     public RelUsuarioEmpresa(Integer idUsuario, Integer idEmpresa) {
         this.id = new RelUsuarioEmpresaPK(idUsuario, idEmpresa);
+    }
+
+    public RelUsuarioEmpresa(Integer idUsuario, Integer idEmpresa,Short permisoRelUsuarioEmpresa) {
+        this.id = new RelUsuarioEmpresaPK(idUsuario, idEmpresa);
+        this.permisoRelUsuarioEmpresa = permisoRelUsuarioEmpresa;
     }
 
     public RelUsuarioEmpresaPK getId() {
