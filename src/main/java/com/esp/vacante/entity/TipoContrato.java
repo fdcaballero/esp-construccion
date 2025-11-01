@@ -1,15 +1,18 @@
-package com.esp.tipocontrato.entity;
+package com.esp.vacante.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-
-@Table(name = "tipos_contratos", indexes = @Index(name = "idx_nombre_tipo_contrato",
-        columnList = "nombre_tipo_contrato"))
-@Entity(name = "contrato_Tipocontrato")
+@Table(name = "tipos_contratos")
+@Entity(name = "vacante_TipoContrato")
 public class TipoContrato implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -17,9 +20,8 @@ public class TipoContrato implements Serializable {
     @Column(name = "id_tipo_contrato")
     private Integer idTipoContrato;
 
-    @Column(name = "nombre_tipo_contrato", nullable = false, unique = true, length = 150)
+    @Column(name = "nombre_tipo_contrato", nullable = false, length = 150)
     private String nombreTipoContrato;
-
 
     public TipoContrato() {
     }
@@ -50,30 +52,27 @@ public class TipoContrato implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final TipoContrato other = (TipoContrato) obj;
-        return Objects.equals(this.idTipoContrato, other.idTipoContrato);
+    public int hashCode() {
+        int hash = 0;
+        hash += (idTipoContrato != null ? idTipoContrato.hashCode() : 0);
+        return hash;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(idTipoContrato);
+    public boolean equals(Object object) {
+        if (!(object instanceof TipoContrato)) {
+            return false;
+        }
+        TipoContrato other = (TipoContrato) object;
+        return !((this.idTipoContrato == null && other.idTipoContrato != null) || (this.idTipoContrato != null && !this.idTipoContrato.equals(other.idTipoContrato)));
     }
 
     @Override
     public String toString() {
-        return "TipoEmpresa{" +
-                "idTipoEmpresa=" + idTipoContrato +
-                ", nombreTipoEmpresa='" + nombreTipoContrato + '\'' +
-                '}';
+        return "TipoContrato["
+                + "idTipoContrato=" + idTipoContrato
+                + ", nombreTipoContrato=" + nombreTipoContrato
+                + ']';
     }
+
 }
