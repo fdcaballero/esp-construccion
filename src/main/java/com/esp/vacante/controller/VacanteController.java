@@ -27,7 +27,6 @@ public class VacanteController {
             "image/png",
             "image/jpg",
             "image/jpeg");
-    private static final Logger log = LoggerFactory.getLogger(VacanteController.class);
 
     private final VacanteCrearService service;
 
@@ -37,8 +36,7 @@ public class VacanteController {
 
     @PostMapping("/add")
     public ResponseEntity<?> crear(@ModelAttribute VacanteDtoCrear dto) {
-        log.info("Creando Vacante: {}", dto.toString());
-        MultipartFile file = dto.getArchivo();
+         MultipartFile file = dto.getArchivo();
         ArchivoRegla.verificar(file, TIPO_ARCHIVO, TAMANIO_ARCHIVO);
         ArchivoDtoMetadato metadato = ArchivoRegla.extraerMetadatos(file);
         AnuncioDtoMetadato anuncioDtoArchivo = new AnuncioDtoMetadato(

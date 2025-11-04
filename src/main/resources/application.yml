@@ -35,7 +35,9 @@ spring:
             enable: true
   web:
     resources:
-      static-locations: "file:${especializacion.ruta.imagenes-vacantes}/"
+      static-locations:
+        - "file:${especializacion.ruta.imagenes-vacantes}/"
+        - "file:${especializacion.ruta.imagenes}/"
 
 server:
   port: 3333
