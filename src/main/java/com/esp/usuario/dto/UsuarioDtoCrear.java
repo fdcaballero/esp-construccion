@@ -4,15 +4,19 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.Serializable;
 
-public class UsuarioDtoCrear {
+
+public class UsuarioDtoCrear implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @NotNull(message = "El id debe ser nulo")
     private Short tipoDocumento;
 
     @NotNull(message = "El documento no debe ser nulo")
     @Size(min = 1, max = 150, message = "El documento debe tener entre 1 y 150 caracteres")
-    private String documetoUsuario;
+    private String documentoUsuario;
 
     @NotNull(message = "El nombre no debe ser nulo")
     @Size(min = 1, max = 50, message = "El nombre debe tener entre 1 y 50 caracteres")
@@ -30,18 +34,31 @@ public class UsuarioDtoCrear {
     @NotNull(message = "El archivo no debe ser nulo")
     private MultipartFile archivo;
 
+    @NotNull(message = "El campo favoritaImagen es requerido")
+    private Short favoritaImagen;
 
     public UsuarioDtoCrear() {
     }
 
     public UsuarioDtoCrear(Short tipoDocumento, String documetoUsuario, String nombresUsuario,
-                           String apellidosUsuario, Short estadoUsuario, Integer idUbicacion) {
+                           String apellidosUsuario, Short estadoUsuario, Integer idUbicacion,
+                           MultipartFile archivo, Short favoritaImagen) {
         this.tipoDocumento = tipoDocumento;
-        this.documetoUsuario = documetoUsuario;
+        this.documentoUsuario = documetoUsuario;
         this.nombresUsuario = nombresUsuario;
         this.apellidosUsuario = apellidosUsuario;
         this.estadoUsuario = estadoUsuario;
         this.idUbicacion = idUbicacion;
+        this.archivo = archivo;
+        this.favoritaImagen = favoritaImagen;
+    }
+
+    public Short getFavoritaImagen() {
+        return favoritaImagen;
+    }
+
+    public void setFavoritaImagen(Short favoritaImagen) {
+        this.favoritaImagen = favoritaImagen;
     }
 
     public Short getTipoDocumento() {
@@ -52,12 +69,12 @@ public class UsuarioDtoCrear {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public String getDocumetoUsuario() {
-        return documetoUsuario;
+    public String getDocumentoUsuario() {
+        return documentoUsuario;
     }
 
-    public void setDocumetoUsuario(String documetoUsuario) {
-        this.documetoUsuario = documetoUsuario;
+    public void setDocumentoUsuario(String documetoUsuario) {
+        this.documentoUsuario = documetoUsuario;
     }
 
     public String getNombresUsuario() {
@@ -98,5 +115,18 @@ public class UsuarioDtoCrear {
 
     public void setArchivo(MultipartFile archivo) {
         this.archivo = archivo;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioDtoCrear{" +
+                "tipoDocumento=" + tipoDocumento +
+                ", documentoUsuario='" + documentoUsuario + '\'' +
+                ", nombresUsuario='" + nombresUsuario + '\'' +
+                ", apellidosUsuario='" + apellidosUsuario + '\'' +
+                ", estadoUsuario=" + estadoUsuario +
+                ", idUbicacion=" + idUbicacion +
+                ", favoritaImagen=" + favoritaImagen +
+                '}';
     }
 }

@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity(name = "usuario_Usuario")
-@Table(name = "usuarios")
+@Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(name = "documento_unico",
+        columnNames = "documento_usuario"))
 public class Usuario implements Serializable {
 
     @Serial

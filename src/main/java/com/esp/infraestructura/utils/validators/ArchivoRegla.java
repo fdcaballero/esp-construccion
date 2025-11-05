@@ -43,7 +43,7 @@ public class ArchivoRegla {
         String uuid = UUID.randomUUID().toString();
         String nombrePrivado = fecha + "_" + uuid + "_" + nombrePublico;
 
-        return new ArchivoDtoMetadato(nombrePublico, nombrePrivado, tipoMime, tamanio, extension);
+        return new ArchivoDtoMetadato(nombrePublico, nombrePrivado, tipoMime, extension, tamanio);
     }
 
 

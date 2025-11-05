@@ -40,7 +40,7 @@ public class UsuarioMapper implements MapperEntitytoDto<Usuario, UsuarioDtoRespu
         Usuario usuario = new Usuario();
         usuario.setNombresUsuario(dto.getNombresUsuario());
         usuario.setApellidosUsuario(dto.getApellidosUsuario());
-        usuario.setDocumentoUsuario(dto.getDocumetoUsuario());
+        usuario.setDocumentoUsuario(dto.getDocumentoUsuario());
         usuario.setTipoDocumentoUsuario(dto.getTipoDocumento());
         usuario.setEstadoUsuario(dto.getEstadoUsuario());
         if (dto.getIdUbicacion() != null)
