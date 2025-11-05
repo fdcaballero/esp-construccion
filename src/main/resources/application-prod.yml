@@ -1,15 +1,15 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SERVER_DB_PROD:jdbc:postgresql://200.255.200.245:5432/db_especializacion}
+    url: ${SERVER_DB_PROD}
     username: ${SERVER_USER}
     password: ${SERVER_PASSWORD}
 
 especializacion:
   url:
-    base-imagenes: https://servidor.unimag.com
+    base-imagenes:
   ruta:
-    imagenes: /var/especializacion/imagenes
-    imagenes-vacantes: /var/especializacion/imagenes/vacantes
-    documentos: /var/especializacion/documentos
+    imagenes: ${VOL_MOUNT_IMAGENES}
+    imagenes-vacantes: ${VOL_MOUNT_VACANTES}
+    documentos: ${VOL_MOUNT_DOCUMENTOS}
 

@@ -8,8 +8,8 @@ spring:
 # Base URL para im\u00e1genes en desarrollo
 especializacion:
   url:
-    base-imagenes: http://localhost:3333
+    base-imagenes: ${URL_BASE}
   ruta:
-    imagenes: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/imagenes
-    imagenes-vacantes: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/vacantes
-    documentos: C:/Users/ASUS/Documents/adjuntos-prueba/especializacion/documentos
+    imagenes: ${VOL_MOUNT_IMAGENES}
+    imagenes-vacantes: ${VOL_MOUNT_VACANTES}
+    documentos: ${VOL_MOUNT_DOCUMENTOS}
