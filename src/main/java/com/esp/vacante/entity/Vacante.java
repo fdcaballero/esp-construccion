@@ -42,7 +42,6 @@ public class Vacante implements Serializable {
     @Column(name = "titulo_vacante", length = 300, nullable = false)
     private String tituloVacante;
 
-    @Lob
     @Column(name = "detalle_vacante", nullable = false)
     private String detalleVacante;
 
@@ -62,6 +61,19 @@ public class Vacante implements Serializable {
     private String maxSalarioVacante;
 
     public Vacante() {
+    }
+
+    public Vacante(Integer idVacante, String tituloVacante, String detalleVacante,
+                   OffsetDateTime fechaInicioVacante, OffsetDateTime fechaFinVacante,
+                   Short estadoVacante, String minSalarioVacante, String maxSalarioVacante) {
+        this.idVacante = idVacante;
+        this.tituloVacante = tituloVacante;
+        this.detalleVacante = detalleVacante;
+        this.fechaInicioVacante = fechaInicioVacante;
+        this.fechaFinVacante = fechaFinVacante;
+        this.estadoVacante = estadoVacante;
+        this.minSalarioVacante = minSalarioVacante;
+        this.maxSalarioVacante = maxSalarioVacante;
     }
 
     public Vacante(Integer idVacante) {
