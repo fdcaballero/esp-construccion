@@ -4,7 +4,6 @@ import com.esp.infraestructura.utils.respuesta.ResponseHttp;
 import com.esp.infraestructura.utils.respuesta.ResponseHttpModel;
 import com.esp.usuario.dto.UsuarioDtoConsulta;
 import com.esp.usuario.service.UsuarioConsultaService;
-import com.esp.vacante.dto.VacanteDtoConsulta;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

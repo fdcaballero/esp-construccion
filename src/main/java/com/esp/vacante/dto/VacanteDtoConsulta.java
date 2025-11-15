@@ -23,7 +23,7 @@ public class VacanteDtoConsulta {
     private final String imagenUrl;
     private final String nombrePrivadoAnuncio;
     private final String estadoVacante;
-    private final List<String> palabraClave;
+    private final List<String> palabrasClave;
 
     public VacanteDtoConsulta(Integer idVacante, String tituloVacante, String detalleVacante,
                               OffsetDateTime fechaInicioVacante, OffsetDateTime fechaFinVacante,
@@ -46,7 +46,7 @@ public class VacanteDtoConsulta {
         this.imagenUrl = imagenUrl;
         this.nombrePrivadoAnuncio = nombrePrivadoAnuncio;
         this.estadoVacante = estadoVacante;
-        this.palabraClave = palabraClave;
+        this.palabrasClave = palabraClave;
     }
 
     public VacanteDtoConsulta(Integer idVacante, String tituloVacante, String detalleVacante,
@@ -122,8 +122,8 @@ public class VacanteDtoConsulta {
         return estadoVacante;
     }
 
-    public List<String> getPalabraClave() {
-        return palabraClave;
+    public List<String> getPalabrasClave() {
+        return palabrasClave;
     }
 
     public VacanteDtoConsulta conUrl(String url) {
@@ -131,6 +131,6 @@ public class VacanteDtoConsulta {
         return new VacanteDtoConsulta(idVacante, tituloVacante, detalleVacante, fechaInicioVacante, fechaFinVacante,
                 minSalarioVacante, maxSalarioVacante, nombreUbicacion,
                 nombreEmpresa, nombreJornada, modalidad, tipoContrato,
-                url, nombrePrivadoAnuncio, estadoVacante, palabraClave);
+                url, nombrePrivadoAnuncio, estadoVacante, palabrasClave);
     }
 }
