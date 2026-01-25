@@ -5,6 +5,7 @@ import com.esp.infraestructura.core.crud.OperationCrudImpl;
 import com.esp.infraestructura.core.search.SearchService;
 import com.esp.infraestructura.dto.ArchivoDtoMetadato;
 import com.esp.infraestructura.exception.ExceptionBusiness;
+import com.esp.infraestructura.s3.S3Service;
 import com.esp.infraestructura.utils.archivo.GestorArchivoAdmin;
 import com.esp.infraestructura.utils.archivo.GestorArchivoInstancia;
 import com.esp.infraestructura.utils.validators.ArchivoRegla;
@@ -17,10 +18,12 @@ import com.esp.usuario.repository.ImagenRepository;
 import com.esp.usuario.repository.UsuarioRepository;
 import com.esp.usuario.utils.mappers.UsuarioMapper;
 import com.esp.usuario.utils.validators.UsuarioValidator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +34,10 @@ public class UsuarioCrearService extends OperationCrudImpl<Usuario, Integer> {
     private final ImagenRepository imagenRepository;
     private final UsuarioMapper mapper;
     private final GestorArchivoAdmin gestorArchivoAdmin;
+    private final S3Service s3Service;
 
-
+    @Value("${especializacion.ruta.imagenes}")
+    private String nameBucket;
     private static final long TAMANIO_ARCHIVO = 1024 * 1024 * 5; // 5 MB
     private static final List<String> TIPO_ARCHIVO = List.of(
             "image/png",
@@ -47,12 +52,14 @@ public class UsuarioCrearService extends OperationCrudImpl<Usuario, Integer> {
                                UsuarioRepository repositorio,
                                GestorArchivoAdmin gestorArchivoAdmin,
                                ImagenRepository imagenRepository,
+                               S3Service serviceS3,
                                UsuarioMapper mapper) {
         super(searchService);
         this.repositorio = repositorio;
         this.imagenRepository = imagenRepository;
         this.mapper = mapper;
         this.gestorArchivoAdmin = gestorArchivoAdmin;
+        this.s3Service = serviceS3;
     }
 
     @Override
@@ -99,13 +106,17 @@ public class UsuarioCrearService extends OperationCrudImpl<Usuario, Integer> {
     }
 
     private void guardarFile(MultipartFile file, ImagenDtoMetadato metadato) {
-        GestorArchivoInstancia instancia = gestorArchivoAdmin.crear(
+        try {
+            s3Service.load(this.nameBucket, metadato.nombrePublico(), file);
+        } catch (IOException e) {
+            throw new ExceptionBusiness("Error al guardar la imagen del usuario");
+        }
+/*    GestorArchivoInstancia instancia = gestorArchivoAdmin.crear(
                 ConstTipoArchivo.IMAGEN,
                 metadato.nombrePrivado(),
                 null, file);
         if (!instancia.guardar())
-            throw new ExceptionBusiness("Error al guardar la imagen del usuario");
-
+            throw new ExceptionBusiness("Error al guardar la imagen del usuario");*/
     }
 
 

@@ -21,7 +21,6 @@ spring:
   profiles:
     active:
       - dev
-      - security-enabled
   mail:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}

@@ -5,11 +5,23 @@ spring:
     username: ${SERVER_USER}
     password: ${SERVER_PASSWORD}
 
+
+aws:
+  endpoint: ${URL_AWS}
+  credentials:
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+  region:
+    static: ${REGION}
+
+
+
 # Base URL para im\u00e1genes en desarrollo
 especializacion:
   url:
     base-imagenes: ${URL_BASE}
   ruta:
-    imagenes: ${VOL_MOUNT_IMAGENES}
+#    imagenes: ${VOL_MOUNT_IMAGENES}
+    imagenes: ${BUCKET_IMG}
     imagenes-vacantes: ${VOL_MOUNT_VACANTES}
     documentos: ${VOL_MOUNT_DOCUMENTOS}
