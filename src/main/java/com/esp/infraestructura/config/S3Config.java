@@ -16,16 +16,16 @@ import java.net.URI;
 public class S3Config {
 
 
-    @Value("${aws.endpoint}")
+    @Value("${spring.cloud.aws.endpoint}")
     private String endpoint;
 
-    @Value("${aws.region.static}")
+    @Value("${spring.cloud.aws.region.static}")
     private String region;
 
-    @Value("${aws.credentials.access-key}")
+    @Value("${spring.cloud.aws.credentials.access-key}")
     private String accessKey;
 
-    @Value("${aws.credentials.secret-key}")
+    @Value("${spring.cloud.aws.credentials.secret-key}")
     private String secretKey;
 
     @Bean
