@@ -26,7 +26,21 @@ services:
       - pgadmin_data:/var/lib/pgadmin
     networks:
       - net_postgres
-
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fdcaballero/spring-app
+    container_name: spring-app
+    ports:
+      - "8081:3333"
+    env_file:
+      - QA.env
+    restart: unless-stopped
+    networks:
+      - net_postgres
+    depends_on:
+      - postgres
 volumes:
   postgres_data:
   pgadmin_data:
