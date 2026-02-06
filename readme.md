@@ -25,3 +25,8 @@ Este repositorio contiene marial didactico, desarrollado en el transcurso de la 
 - `VOL_MOUNT_VACANTES`
 - `VOL_MOUNT_IMAGENES`
 - `VOL_MOUNT_DOCUMENTOS`
+
+### Ejecutar el docker build esto para que el docker tenga en cuenta que debe tomar la caché de las dependencias, \
+ en caso de que estas no hayan cambiado 
+
+- `DOCKER_BUILDKIT=1 docker build -t <nameImage> .`
